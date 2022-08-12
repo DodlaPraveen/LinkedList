@@ -16,5 +16,18 @@ namespace LinkedListTest
             Node node = linkedList.Search(30);
             Assert.AreEqual(30, node.data);
         }
+
+        [TestMethod]
+        public void FindPosition_ofElement_ThenAdd40ToAfter30()
+        {
+            Linked_List list = new Linked_List();
+            list.Add(56);
+            list.Add(30);
+            list.Add(70);
+            list.InserAtParticularPosition(3, 40);
+            Node result = list.Search(40);
+            Assert.AreEqual(40, result.data);
+
+        }
     }
 }

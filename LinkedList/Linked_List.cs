@@ -24,8 +24,8 @@ namespace LinkedList
                 temp.next = node;
             }
         }
-        
-        internal Node InserAtParticularPosition(int position, int data)
+
+        public Node InserAtParticularPosition(int position, int data)
         {
             if (position < 1)
             {
@@ -39,6 +39,7 @@ namespace LinkedList
             }
             else
             {
+                var firstHead = this.head;
                 while (position-- != 0)
                 {
                     if (position == 1)
@@ -50,6 +51,10 @@ namespace LinkedList
                     }
                     head = head.next;
                 }
+
+                firstHead.next = head;
+                head = firstHead;
+
                 if (position != 1)
                     Console.WriteLine("Position out of range...");
             }
@@ -109,6 +114,20 @@ namespace LinkedList
                 this.head = this.head.next;
             }
             return null;
+        }
+        public int findPoistion(int value)
+        {
+            int position = 0;
+            while (this.head != null)
+            {
+                position++;
+                if (this.head.data == value)
+                {
+                    return position;
+                }
+                this.head = this.head.next;
+            }
+            return position;
         }
     }
 }
