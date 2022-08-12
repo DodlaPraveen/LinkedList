@@ -7,19 +7,21 @@ namespace LinkedList
     class Linked_List
     {
         internal Node head;
-        // Add to first.
         internal void Add(int data)
         {
             Node node = new Node(data);
-            if (head == null)
+            if (this.head == null)
             {
-                head = new Node(data);
+                this.head = node;
             }
             else
             {
-                Node temp = new Node(data);
-                temp.next = head;
-                head = temp;
+                Node temp = head;
+                while (temp.next != null)
+                {
+                    temp = temp.next;
+                }
+                temp.next = node;
             }
         }
 
